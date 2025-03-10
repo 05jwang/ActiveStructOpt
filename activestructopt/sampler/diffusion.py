@@ -3,7 +3,7 @@ from activestructopt.common.registry import registry
 from activestructopt.common.constraints import lj_reject
 from pymatgen.core.structure import IStructure, Lattice
 import numpy as np
-from diffcsp import sample
+from diffcsp import sample as diffcsp_sample
 from types import SimpleNamespace
 
 @registry.register_sampler("Diffusion")
@@ -19,5 +19,14 @@ class Diffusion(BaseSampler):
         self.angles = initial_structure.lattice.angles
 
     def sample(self) -> IStructure:
-        new_structure = sample.main(self.model_path, self.save_path, self.formula, self.num_evals, self.batch_size, self.step_lr, self.lengths, self.angles)
+        new_structure = diffcsp_sample.main(
+            self.model_path,
+            self.save_path,
+            self.formula,
+            self.num_evals,
+            self.batch_size,
+            self.step_lr,
+            self.lengths,
+            self.angles,
+        )
         return new_structure

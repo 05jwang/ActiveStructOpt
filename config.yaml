@@ -1,6 +1,6 @@
 model:
-  model_path: "/home/hice1/kthakrar3/DiffCSP_kt/pretrained_checkpoints"
-  save_path: "/home/hice1/kthakrar3/DiffCSP_kt/sample_output"
+  model_path: ${MODEL_PATH} # "/home/hice1/jwang3450/DiffCSP_kt/pretrained_checkpoints"
+  save_path: ${SAVE_PATH} # "/home/hice1/jwang3450/DiffCSP_kt/sample_output"
   formula: "B2O3"
   num_evals: 100
   batch_size: 500
